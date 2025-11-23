@@ -31,7 +31,6 @@ def main():
                 break
 
     cap.release()
-
     cv.destroyAllWindows()
 
 if __name__ == "__main__":
