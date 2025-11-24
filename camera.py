@@ -1,4 +1,5 @@
 import cv2 as cv
+import numpy as np
 
 def main():
     camera_id = 0
@@ -24,6 +25,9 @@ def main():
                 print("Cant recieve frame")
                 break
             
+            # Adjusts the contrast by scaling the pixel values by 2.3
+            contrast = 2.3  
+            frame = cv.addWeighted(frame, contrast, np.zeros(frame.shape, frame.dtype), 0, 1)
             cv.imshow("camera", frame)
 
             if cv.waitKey(1) == ord("s"):
